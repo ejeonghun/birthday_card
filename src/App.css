@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=YouTube+Sans:wght@400;500;600;700;800&display=swap');
+
+* {
+  font-family: "YouTube Sans";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+.m-2 {
+  margin:2px;
+}
+
+.m_b-2 {
+  margin-block: 2px;
+}
+
+body {
+  background-color: rgb(255, 246, 233);
+}
