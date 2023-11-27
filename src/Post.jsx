@@ -59,6 +59,30 @@ function Post() {
     window.location.reload();
   }
 
+  function formatTimestamp(timestamp) {
+    // timestamp를 Date 객체로 변환합니다.
+    const date = new Date(timestamp);
+  
+    // Intl.DateTimeFormat 객체를 생성합니다.
+    // 옵션으로 timeZone을 'Asia/Seoul'로 설정하고, 원하는 날짜와 시간 형식을 지정합니다.
+    const formatter = new Intl.DateTimeFormat('ko-KR', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+      timeZone: 'Asia/Seoul'
+    });
+  
+    // 날짜와 시간을 원하는 형식으로 포맷팅합니다.
+    const formatted = formatter.format(date);
+  
+    // 포맷팅된 날짜와 시간을 반환합니다.
+    return formatted;
+  }
+
   if (loading) {
     return <div>Loading...</div>
   }
@@ -71,14 +95,15 @@ function Post() {
 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: '800px', margin: 'auto' }}>
       <Link to="/new" style={{ textDecoration: 'none', color: '#fff', backgroundColor: '#007BFF', padding: '10px 20px', borderRadius: '4px', marginBottom: '10px' }}>New Post</Link>
       {post.img_url ? <img src={post.img_url} alt="이미지" style={{ width: '100%', height: 'auto', objectFit: 'cover' }}/> : "이미지 오류"}
-      <h1 style={{ margin: '20px 0 10px 0', textAlign: 'center' }}>{post.title}</h1>
+      <h2 style={{ margin: '20px 0 10px 0', textAlign: 'center' }}>{post.title}</h2>
       <p style={{ margin: '10px 0 20px 0', textAlign: 'left' }}>{post.content}</p>
       <div style={{ width: '100%', borderTop: '1px solid #000', padding: '20px', boxSizing: 'border-box' }}>
-        <h2>댓글</h2>
+        <h3>댓글</h3>
         {replies.map((reply) => (
           <div key={reply.id} style={{display:'flex', flexDirection:'row', alignItems:'flex-start', borderBottom: '1px solid #ddd', padding: '10px 0', alignItems:'center'}}>
             <p style={{fontSize:'18px'}} className="m-2 m_b-2"><strong>{reply.nickname}:</strong></p>
             <p style={{fontSize:'16px'}} className="m-2 m_b-2">{reply.reply_content}</p>
+            <p style={{fontSize:'14px'}} className="m-2 m_b-2">{formatTimestamp(reply.created_at)}</p>
           </div>
         ))}
         <form onSubmit={handleReplySubmit} style={{ display: 'flex', flexDirection: 'column' }}>
