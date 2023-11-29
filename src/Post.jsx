@@ -1,6 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 import { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useLocation } from 'react-router-dom'
+import { shareKakao } from "./KakaoShare";
 
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
@@ -12,6 +13,17 @@ function Post() {
   const [replies, setReplies] = useState([]);
   const [newReply, setNewReply] = useState({nickname: "", reply_content: ""});
   const [loading, setLoading] = useState(true);
+  const [webUrl, setwebUrl] = useState('');
+  const location = useLocation();
+
+  
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://developers.kakao.com/sdk/js/kakao.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => document.body.removeChild(script);
+  }, []);
 
   useEffect(() => {
     async function fetchPostAndReplies() {
@@ -34,7 +46,7 @@ function Post() {
         console.error("Error fetching replies:", replyError);
         return;
       }
-
+      setwebUrl(window.location.origin + location.pathname);
       setPost(postData[0]);
       setReplies(replyData);
       setLoading(false);
@@ -98,6 +110,12 @@ function Post() {
       <h2 style={{ margin: '20px 0 10px 0', textAlign: 'center' }}>{post.title}</h2>
       <p style={{ margin: '10px 0 20px 0', textAlign: 'left' }}>{post.content}</p>
       <div style={{ width: '100%', borderTop: '1px solid #000', padding: '20px', boxSizing: 'border-box' }}>
+        {post ?
+        <button onClick={() => shareKakao(webUrl, post.img_url)}>
+        <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" alt="카카오톡 공유" />
+        </button>
+        : ""}
+
         <h3>댓글</h3>
         {replies.map((reply) => (
           <div key={reply.id} style={{display:'flex', flexDirection:'row', alignItems:'flex-start', borderBottom: '1px solid #ddd', padding: '10px 0', alignItems:'center'}}>

@@ -1,5 +1,6 @@
 {
   "name": "birthday_react",
+  "homepage": "https://main.lunaweb.dev/birthday_card/build",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
