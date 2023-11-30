@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/birthday_card/build/static/css/main.9c938c6c.css",
+    "main.js": "/birthday_card/build/static/js/main.17bafbe2.js",
+    "static/js/787.6939efd9.chunk.js": "/birthday_card/build/static/js/787.6939efd9.chunk.js",
+    "static/media/main.webp": "/birthday_card/build/static/media/main.4d172b680ba47dfb323d.webp",
+    "index.html": "/birthday_card/build/index.html",
+    "main.9c938c6c.css.map": "/birthday_card/build/static/css/main.9c938c6c.css.map",
+    "main.17bafbe2.js.map": "/birthday_card/build/static/js/main.17bafbe2.js.map",
+    "787.6939efd9.chunk.js.map": "/birthday_card/build/static/js/787.6939efd9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9c938c6c.css",
+    "static/js/main.17bafbe2.js"
+  ]
+}
