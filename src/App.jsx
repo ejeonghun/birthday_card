@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route,Link } from "react-router-dom";
+import { HashRouter, Routes, Route, Link } from "react-router-dom";
 import NewPost from './NewPost';
 import Post from './Post';
 import main_img from './main.webp';
@@ -136,13 +136,13 @@ function HomePage() {
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/post/:id" element={<Post/>} />
+        <Route path="/post/:id" element={<Post />} />
         <Route path="/new" element={<NewPost />} />
       </Routes>
-    </Router>
+    </HashRouter>
   );
 }
 
