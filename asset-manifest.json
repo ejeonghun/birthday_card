@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/birthday_card/static/css/main.9c938c6c.css",
-    "main.js": "/birthday_card/static/js/main.c74180b4.js",
+    "main.css": "/birthday_card/static/css/main.d6f99f56.css",
+    "main.js": "/birthday_card/static/js/main.810d8b48.js",
     "static/js/787.6939efd9.chunk.js": "/birthday_card/static/js/787.6939efd9.chunk.js",
     "static/media/main.webp": "/birthday_card/static/media/main.4d172b680ba47dfb323d.webp",
+    "static/media/image_upload.png": "/birthday_card/static/media/image_upload.dc9f12255ba6264b3353.png",
     "index.html": "/birthday_card/index.html",
-    "main.9c938c6c.css.map": "/birthday_card/static/css/main.9c938c6c.css.map",
-    "main.c74180b4.js.map": "/birthday_card/static/js/main.c74180b4.js.map",
+    "static/media/backbtn.svg": "/birthday_card/static/media/backbtn.c4c39b6ecf7b960ac367bf87a96ca331.svg",
+    "main.d6f99f56.css.map": "/birthday_card/static/css/main.d6f99f56.css.map",
+    "main.810d8b48.js.map": "/birthday_card/static/js/main.810d8b48.js.map",
     "787.6939efd9.chunk.js.map": "/birthday_card/static/js/787.6939efd9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9c938c6c.css",
-    "static/js/main.c74180b4.js"
+    "static/css/main.d6f99f56.css",
+    "static/js/main.810d8b48.js"
   ]
 }
