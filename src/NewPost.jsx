@@ -111,31 +111,24 @@ function NewPost() {
     <label style={{ position: 'relative' }}>
       이미지 업로드
       <br/>
-      <input type="file" onChange={handleImageUpload} style={{ display: 'none' }}/>
+      <input type="file" onChange={handleImageUpload} accept="image/*" style={{ display: 'none' }}/>
       {isLoading ? <div class="droplet_spinner">
         <div class="droplet"></div>
         <div class="droplet"></div>
         <div class="droplet"></div>
-      </div> : <img src={image_upload} alt="img_upload" style={{ width: '10%', height: 'auto', objectFit: 'cover' , border:'3px solid #f3b9d6', borderRadius:'15px'}}/>}
+      </div> : <img src={image_upload} alt="img_upload" style={{ width: '10%', height: 'auto', objectFit: 'cover' , border:'3px solid rgb(190 207 255)', borderRadius:'15px'}}/>}
     </label>
     <hr/>
     {imgUrl &&
       <>
       <div className="preview">
-        <img src={imgUrl} style={{width:'20%' , height:'auto', borderRadius:'5px'}}/>
+        <img src={imgUrl} style={{width:'20%' , height:'auto', borderRadius:'5px'}} alt="preview"/>
       </div>
       </>
     }
     <br/>
     <button type="submit" style={{ padding: '10px 20px', borderRadius: '4px', border: 'none', color: '#fff', backgroundColor: 'rgb(122 199 227)', cursor: 'pointer', float:'right'}}>작성</button>
   </form>
-      {/* <div style={{ width: '100%', borderTop: '1px solid #000', padding: '20px', boxSizing: 'border-box' }}>
-        <h4>미리보기</h4>
-        <img src={imgUrl || 'https://via.placeholder.com/150'} alt="preview" style={{ width: '100%', height: 'auto', objectFit: 'cover' }}/>
-        <h2 style={{ margin: '20px 0 10px 0', textAlign: 'center' }}>{title}</h2>
-        <p style={{ margin: '10px 0 20px 0', textAlign: 'left' }}>{content}</p>
-        <hr/>
-      </div> */}
     </div>
   );
 }
