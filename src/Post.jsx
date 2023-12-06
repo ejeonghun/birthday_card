@@ -35,34 +35,39 @@ function Post() {
 
   useEffect(() => { // Post를 가져오는 API
     async function fetchPostAndReplies() {
-      const { data: postData, error: postError } = await supabase
-        .from("post")
-        .select("*")
-        .eq("id", id);
-        
-      if (postError) {
-        console.error("Error fetching post:", postError);
-        return;
-      }
+      try {
+        const { data: postData, error: postError } = await supabase
+          .from("post")
+          .select("*")
+          .eq("id", id);
+          
+        if (postError) {
+          console.error("Error fetching post:", postError);
+          setPost(null);
+          throw new Error('게시물을 찾을 수 없습니다.');
+        }
 
-      const { data: replyData, error: replyError } = await supabase
-        .from("reply")
-        .select("*")
-        .eq("post_id" ,id);
+        const { data: replyData, error: replyError } = await supabase
+          .from("reply")
+          .select("*")
+          .eq("post_id" ,id);
 
-      if (replyError) {
-        console.error("Error fetching replies:", replyError);
-        return;
+        if (replyError) {
+          console.error("Error fetching replies:", replyError);
+          return;
+        }
+        setPost(postData[0]);
+        setReplies(replyData);
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+        setLoading(false);
+        alert(error);
       }
-      setPost(postData[0]);
-      setReplies(replyData);
-      setLoading(false);
-      
     }
 
     fetchPostAndReplies();
   }, [id]);
-
 
 
   async function handleReplySubmit(e) { // 댓글을 작성하는 API
@@ -115,7 +120,16 @@ function Post() {
   }
 
   if (!post) {
-    return <div>No post found</div>
+    return (
+      <div>
+      <div className='loading_container'>
+    <div>게시글을 찾을 수 없습니다.</div>
+    <Link to="/">
+      <button style={{ backgroundColor: 'transparent', border: 'none' }}><img src={backbtn} style={{transform: "scaleX(-1)"}} alt="뒤로가기"/></button>
+      </Link>
+    </div>
+    </div>
+    );
   }
 
 
