@@ -5,6 +5,7 @@ import axios from 'axios';
 import image_upload from './image_upload.png';
 import Loading_css from './loading.css';
 import backbtn from './backbtn.svg';
+import Footer from "./Footer";
 
 function NewPost() {
   const [title, setTitle] = useState("");
@@ -129,6 +130,7 @@ function NewPost() {
     <br/>
     <button type="submit" style={{ padding: '10px 20px', borderRadius: '4px', border: 'none', color: '#fff', backgroundColor: 'rgb(122 199 227)', cursor: 'pointer', float:'right'}}>작성</button>
   </form>
+  <Footer/>
     </div>
   );
 }

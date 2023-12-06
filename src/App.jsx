@@ -9,7 +9,7 @@ import { shareKakao } from "./KakaoShare";
 import Confetti from 'react-confetti';
 import backbtn from './backbtn.svg';
 import Confetti_gif from './confetti.gif';
-import { CSSTransition } from 'react-transition-group';
+import Footer from './Footer.jsx';
 
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
@@ -172,6 +172,7 @@ function HomePage() {
   <span>댓글 작성</span></button>
 </form>
       </div>
+      <Footer/>
     </div>
   );
 }
