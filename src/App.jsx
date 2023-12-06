@@ -9,6 +9,7 @@ import { shareKakao } from "./KakaoShare";
 import Confetti from 'react-confetti';
 import backbtn from './backbtn.svg';
 import Confetti_gif from './confetti.gif';
+import { CSSTransition } from 'react-transition-group';
 
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
@@ -108,7 +109,12 @@ function HomePage() {
   
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+  <div className="loading_container">
+<div className="loadingio-spinner-dual-ring-3vw5ph8hwtd loading"><div className="ldio-f8gndbrcx9s loading">
+<div></div><div><div></div></div>
+</div></div></div>
+    );
   }
 
   if (!post) {
