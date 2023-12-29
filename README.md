@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Birthday_card(생일축하 카드 서비스)
+## [서비스 이용하기](https://main.lunaweb.dev/birthday_card/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 프로젝트 개요
+지인이나 가족의 생일 축하 카드를 만들고, 링크를 카카오톡으로 공유하여 지인들끼리 댓글을 작성하여
 
-## Available Scripts
+축하를 해 주는데 중점을 둔 서비스
 
-In the project directory, you can run:
+## Stack
+- React
+- Supabase
+- Imgur API
+- HashRouter
+- Cloudflare Workers
+- Github Pages
+- KaKao API
 
-### `npm start`
+## 프로젝트 설명
+Supabase를 이용하여 클라이언트 단에서 DB에 접속을 하여, 등록/조회를 할 수 있도록 기능을 구현
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+사용자가 글을 작성할 때 이미지를 첨부하면 Cloudflare Workers에 접속하여 작성해놓은 Imgur API에
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+이미지 업로드 후 Image URL를 반환하여 Supabase에 같이 등록하여 줄 수 있도록 구현
 
-### `npm test`
+사용자가 링크를 카카오톡으로 공유를 하고 해당 URL에 접속 시 URL 쿼리스트링으로 uuid를 분리하여 해당 uuid
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+의 게시글과 댓글 리스트를 조회하여 웹앱에 표시합니다.
 
-### `npm run build`
+## 기능
+- 게시글 작성
+- 게시글 조회
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 댓글 작성
+- 댓글 조회
+- 카카오톡 링크 공유
+- 이미지 등록
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## DEMO IMAGE
+![main](https://github.com/ejeonghun/birthday_card/assets/41509711/d46d2a39-aeac-41ca-becc-3b8aa425ffde)
+### [화면구성](https://github.com/ejeonghun/birthday_card/wiki/%ED%99%94%EB%A9%B4-%EA%B5%AC%EC%84%B1)
